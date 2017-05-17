@@ -107,3 +107,16 @@ var person2 = {
 
 console.log(person.getFullname.apply(person2));   // borrowing the function from person object and using it on person2. This works as long as
                                                     //person2 object also has the same set of args
+
+// 2. function currying ==> Creating a copy of a function but with some preset parameters : Useful in mathematical situations.
+
+function multiply(a, b){
+  return a*b;
+}
+
+var multiplyByTwo = multiply.bind(this, 2)      // Makes the copy of multiply function object. Sets the first parameter a = 2 permanently
+console.log(multiplyByTwo(4));                  // Passing the second parameter as b=4, hence returns 8
+
+var multiplyByThree = multiply.bind(this, 3)
+console.log(multiplyByThree(4));                  // Passing the second parameter as b=4, hence returns 12
+
